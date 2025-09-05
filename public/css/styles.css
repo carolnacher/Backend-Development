@@ -4,12 +4,52 @@
 *:after {
   box-sizing: border-box;
 }
-.content-box {
+#wrapper {
   background-color: white;            
   border: 2px solid #00bfff;   
   border-radius: 15px;        
   padding: 20px;                       
-  max-width: 800px;                 
+  width: 90%;               
+  height: 90vh;              
   margin: 50px auto;                 
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
+
+/*nav stiles*/
+nav {
+  background-color: #333; 
+  padding: 10px 20px;
+  border-radius: 8px; 
+}
+
+nav ul {
+  list-style: none;   
+  margin: 0;
+  padding: 0;
+  display: flex;    
+  justify-content: space-around; /* distribuye los items equitativamente */
+  align-items: center; ;          
+}
+
+nav li {
+  color: white;        
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  font-family: "DM Sans", sans-serif;
+}
+
+nav li:hover {
+  color: #00bfff;       /* celeste al pasar el mouse */
+}
+
+/*images styles*/
+
+.car-image {
+  display: block;          
+  margin: 20px auto;       
+  max-width: 100%;        
+  height: auto;           
+  
+}
+
