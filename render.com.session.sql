@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS public.inventory
     inv_make character varying NOT NULL,
     inv_model character varying NOT NULL,
     inv_year character(4) NOT NULL,
-    inv_descritpion text NOT NULL,
+    inv_description text NOT NULL,
     inv_image character varying NOT NULL,
     inv_thumbnail character varying NOT NULL,
     inv_price numeric (9,0) NOT NULL,
@@ -43,3 +43,17 @@ CREATE TABLE IF NOT EXISTS public.account
     account_type account_type NOT NULL DEFAULT 'Client',
     CONSTRAINT account_pkey PRIMARY KEY (account_id)
 );
+
+
+
+UPDATE public.inventory
+SET inv_description = REPLACE(inv_description, 'small interiors', 'a huge interior')
+WHERE inv_make = 'GM' AND inv_model = 'Hummer';
+
+
+UPDATE public.inventory
+SET inv_image = REPLACE(inv_image, '/images/', '/images/vehicles/'),
+    inv_thumbnail = REPLACE(inv_thumbnail, '/images/', '/images/vehicles/');
+
+
+
