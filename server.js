@@ -32,15 +32,14 @@ app.use("/inv", inventoryRoute)
  * Local Server Information
  * Values from .env (environment) file
  *************************/
-const port = process.env.PORT || 5500;
-
-
+const port = process.env.PORT
+const host = process.env.HOST
 
 /* ***********************
  * Log statement to confirm server operation
  *************************/
 app.listen(port, () => {
-  console.log(`app listening on port ${port}`)
+  console.log(`app listening on ${host}:${port}`)
 })
 
 //Index route
