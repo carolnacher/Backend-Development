@@ -1,22 +1,19 @@
 
 <link rel="stylesheet" href="public/css/inventory.css">
 <%# ============================= %>
-<%# Section: Dynamic Heading %>
+<%# The Content Heading %>
 <%# ============================= %>
 <% if (title) { %>
-  <h1><%= title %></h1>
-<% } else { %>
-  <!-- If no title is provided, show a default message -->
-  <h1>Inventory</h1>
-<% } %>
-
+<h1><%= title %></h1>
+<% } else {
+  res.redirect('/')
+} %>
 <%# ============================= %>
-<%# Section: System Messages %>
-<%# This could display success or error messages using a messages() function %>
+<%# Section: Messages %>
 <%# ============================= %>
 <%# messages() %>
 
 <%# ============================= %>
-<%# Section: Dynamic Inventory Grid Rendering %>
+<%# Section:Inventory Grid  %>
 <%# ============================= %>
 <%- grid %>

@@ -1,8 +1,9 @@
-const express = require("express");
-const router = express.Router();
-const invController = require("../controllers/invController");
+// Needed Resources 
+const express = require("express")
+const router = new express.Router() 
+const invController = require("../controllers/invController")
 
-// Ruta para filtrar por clasificación
+// Route to build inventory by classification view
 router.get("/type/:classificationId", invController.buildByClassificationId);
 
 module.exports = router;
