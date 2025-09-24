@@ -11,7 +11,7 @@
             "server": "localhost",
             "driver": "PostgreSQL",
             "name": "render",
-            "connectString": "postgresql://dbcarolnacher:CalWkXVwB4sqq3qC5g79hE9eKQf6AzDL@dpg-d34c1dur433s73cfrucg-a.oregon-postgres.render.com/dbcarolnacher"
+            "connectString": "postgresql://databasecaroln:685RGMbCJfGHB2enpUO9CruXRsMDXyce@dpg-d34cenl6ubrc73a64k0g-a.oregon-postgres.render.com/databasecaroln"
         }
     ]
 }
