@@ -10,14 +10,14 @@ body {
   background-size: auto; 
 }
 #wrapper {
-  background-color: white;            
-  border: 2px solid #00bfff;   
-  border-radius: 15px;        
-  padding: 20px;                       
-  width: 60%;               
-  height: 105vh;              
-  margin: 50px auto;                 
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  background-color: white;
+  border: 2px solid #00bfff;
+  border-radius: 15px;
+  padding: 20px;
+  max-width: 1200px; 
+  margin: 50px auto; 
+  height: auto; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 .index-background {
   background-image: url('/images/site/small_check.jpg');
@@ -276,15 +276,19 @@ nav li:hover {
     margin-top: 20px;
   }
 }
+.container {
+  max-width: 1200px; /* Puedes ajustar este valor si lo necesitas */
+  margin: 20px auto;
+  padding: 0 15px;
+}
+
 .inventory-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
-  margin: 20px auto;
   padding: 0;
   list-style: none;
 }
-
 /* Individual vehicle card */
 .inventory-item {
   background-color: #f9f9f9;
@@ -325,6 +329,28 @@ nav li:hover {
   .inventory-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/*page error*/
+
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+.error-page {
+  text-align: center;
+  font-family: 'Indie Flower', cursive;
+}
+
+/* Estilos para el título y el mensaje dentro de la página de error */
+.error-page h1 {
+  font-size: 3em; 
+  color: #ff8c00; 
+  margin-bottom: 10px;
+}
+
+.error-page p {
+  font-size: 1.2em;
+  color: #555;
+  margin-bottom: 200px;
 }
 
  /* error page Gatito */
@@ -474,30 +500,21 @@ top: 50%;
     transform: scale(1.6);
   }
 }
-.shadow{
-  height: 10px;
-  width: 240px;
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  position: absolute;
-  bottom: 52px;
-  left: 70px;
-  animation: shadow 2s infinite;
-}
+
 @keyframes shadow{
   50%{
     transform: scalex(0.7);
   }
 }
-.shadow{
-  height: 10px;
-  width: 240px;
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  position: absolute;
-  bottom: 52px;
-  left:70px;
-  animation: shadow 2s infinite;
+.shadow {
+    height: 06px;
+    width: 200px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    position: absolute;
+    bottom: 54px;
+    left: 75px;
+    animation: shadow 2s infinite;
 }
 @keyframes shadow{
   50%{
