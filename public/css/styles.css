@@ -329,16 +329,15 @@ nav li:hover {
 
  /* error page Gatito */
  
+.error-page h1 {
+  font-size: 4em;
+  margin-top: 30px;
+}
 
-    h1 {
-      font-size: 4em;
-      margin-top: 30px;
-    }
-
-    p {
-      font-size: 1.2em;
-      color: #555;
-    }
+.error-page p {
+  font-size: 1.2em;
+  color: #555;
+}
 
     .scene {
       position: relative;
