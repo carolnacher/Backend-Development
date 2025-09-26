@@ -328,89 +328,72 @@ nav li:hover {
 }
 
  /* error page Gatito */
+ body {
+      background: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      font-size: 4em;
+      margin-top: 30px;
+    }
+
+    p {
+      font-size: 1.2em;
+      color: #555;
+    }
+
+    .scene {
+      position: relative;
+      width: 100%;
+      height: 300px;
+      margin-top: 40px;
+      overflow: hidden;
+    }
+
     .cat {
       position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 120px;
-      height: 100px;
-      background: #fbbf24;
-      border-radius: 50% 50% 40% 40%;
-      animation: walk 6s linear infinite;
-    }
-
-    .ear {
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background: #fbbf24;
-      top: -10px;
-      border-radius: 50% 50% 0 0;
-    }
-    .ear.left { left: 20px; transform: rotate(-20deg); }
-    .ear.right { right: 20px; transform: rotate(20deg); }
-
-    .eye {
-      position: absolute;
-      top: 35px;
-      width: 10px;
-      height: 10px;
-      background: #333;
-      border-radius: 50%;
-    }
-    .eye.left { left: 30px; }
-    .eye.right { right: 30px; }
-
-    .tail {
-      position: absolute;
-      width: 20px;
-      height: 70px;
-      background: #fbbf24;
-      right: -15px;
       bottom: 20px;
-      border-radius: 20px;
-      transform-origin: top center;
-      animation: wag 1s ease-in-out infinite alternate;
+      left: 50px;
+      width: 100px;
+      height: 100px;
+      background: url("https://cdn-icons-png.flaticon.com/512/616/616408.png") no-repeat center/contain;
     }
 
-    /* Ovillo */
     .ball {
       position: absolute;
-      bottom: 10px;
-      right: 20px;
-      width: 40px;
-      height: 40px;
-      background: #3b82f6;
-      border-radius: 50%;
-      box-shadow: inset 0 0 0 3px rgba(255,255,255,0.5);
-      animation: roll 6s linear infinite;
+      bottom: 20px;
+      right: 50px;
+      width: 60px;
+      height: 60px;
+      background: url("https://cdn-icons-png.flaticon.com/512/5230/5230921.png") no-repeat center/contain;
     }
 
-    /* Animaciones */
-    @keyframes walk {
-      0% { left: 0; }
-      50% { left: 160px; }
-      100% { left: 0; }
+    .mouse {
+      position: absolute;
+      bottom: 20px;
+      right: 50px;
+      width: 60px;
+      height: 60px;
+      background: url("https://cdn-icons-png.flaticon.com/512/616/616408.png") no-repeat center/contain;
+      display: none;
     }
 
-    @keyframes roll {
-      0% { right: 20px; transform: rotate(0deg); }
-      50% { right: 240px; transform: rotate(360deg); }
-      100% { right: 20px; transform: rotate(720deg); }
-    }
-
-    @keyframes wag {
-      from { transform: rotate(20deg); }
-      to { transform: rotate(-20deg); }
-    }
-
-    a.btn {
-      margin-top: 2em;
+    .btn {
       display: inline-block;
+      margin-top: 30px;
       padding: 12px 20px;
-      background: #3b82f6;
-      color: white;
+      font-size: 1em;
+      color: #fff;
+      background: #0078d7;
       border-radius: 8px;
       text-decoration: none;
-      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #005a9e;
     }
