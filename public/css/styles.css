@@ -328,13 +328,7 @@ nav li:hover {
 }
 
  /* error page Gatito */
- body {
-      background: #fff;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin: 0;
-      padding: 0;
-    }
+ 
 
     h1 {
       font-size: 4em;
