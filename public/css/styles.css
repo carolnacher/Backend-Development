@@ -328,65 +328,239 @@ nav li:hover {
 }
 
  /* error page Gatito */
+ .container-error{
+background-color: #022951;
+border:1px solid #022951;
+height: 200px;
+width: 350px;
+position: absolute;
+transform: translate(-50%,-50%);
+left: 50%;
+top: 50%;
+} 
+.cat{
+  background-color: #FF8C00 ;
+  width: 75px;
+  height: 70px;
+  border-radius: 20px 80px 80px 0;
+  position: absolute;
+  bottom: 60px;
+  right: 70px;
+}
+.ear {
+  height: 15px;
+  width: 15px;
+  background-color: #FF8C00;
+  position: absolute;
+ top: -10px;
+  left: 4px;
+  border-radius: 20px 0 0 0;
+  box-shadow: 25px 0 #FF8C00;
+}
+
+.eye,
+.eye::before{
+  height: 7px;
+  width: 10px;
+  border: 2px solid #1e1f1f;
+  position: absolute;
+  border-radius: 0 0 15px 15px;
+  border-top: none;
+}
+.eye
+{
+  top: 18px;
+  left: 15px;
+}
+.eye::before{
+  content: "";
+  left: 30px;
+}
+.nose{
+  background-color: #f9f9f9;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  position: absolute;
+  top:32px;
+  left: 25px;
+  box-shadow: 12px 0 #f9f9f9;
+}
+.nose:before{
+  content: "";
+  width: 12px;
+  height: 8px;
+  background-color: #f9f9f9;
+  position: absolute;
+  left: 6px;
+}
+.nose:after{
+  content: "";
+  position: absolute;
+  height: 0;
+  width: 0;
+  border-top: 8px solid #FF8C00;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  bottom: 7px;
+  left: 6px;
+}
+.mouth{
+ background-color: #1e1f1f;
+ height: 15px;
+ width: 17px;
+ border-radius: 0 0 5px 5px;
+ position: absolute;
+ top: 38px;
+ left: 27px;
+ animation: mouth-move 2s infinite;
+ transform-origin: top;
+}
+@keyframes mouth-move{
+  50%{
+    transform: scaleY(0.7);
+  }
+  
+}
+.nuget{
+  background-color: #FF8C00;
+  height: 90px;
+  width: 140px;
+  position:absolute;
+  right: 65px;
+  bottom:0;
+  border-radius: 60px 60px 0 0;
+  animation: sleep 2s infinite;
+  transform-origin: bottom right;
+}
+@keyframes sleep{
+  50%{
+    transform: scale(0.9, 1.05);
+  }
+}
+
+.tail{
+  background-color: chocolate;
+  height: 20px;
+  width: 100px;
+  position: absolute;
+  right: 150px;
+  bottom: 0;
+  border-radius: 20px 0 0 20px;
+}
+.nuget:before{
+  content: "";
+  position: absolute;
+  background-color: #f9f9f9;
+  height: 12px;
+  width: 30px;
+  border-radius: 6px;
+  bottom: 0;
+  left: 22px;
+  box-shadow: 45px 0 #f9f9f9;
+}
+.bubble{
+  height: 20px;
+  width: 20px;
+  background-color: rgba(177, 175, 175, 0.4);
+  position:absolute;
+  left:65px;
+  top:20px;
+  border-radius: 50px 50px 50px 5px;
+  animation: bubble-scale 2s infinite;
+}
+@keyframes bubble-scale{
+  50%{
+    transform: scale(1.6);
+  }
+}
+.shadow{
+  height: 10px;
+  width: 240px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  position: absolute;
+  bottom: 52px;
+  left: 70px;
+  animation: shadow 2s infinite;
+}
+@keyframes shadow{
+  50%{
+    transform: scalex(0.7);
+  }
+}
+.shadow{
+  height: 10px;
+  width: 240px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  position: absolute;
+  bottom: 52px;
+  left:70px;
+  animation: shadow 2s infinite;
+}
+@keyframes shadow{
+  50%{
+    transform: scalex(0.7);
+  }
+}
+.mouse {
+  position: absolute;
+  bottom: -30px;
+  left: -190px; /* arranca fuera */
+  width: 30px;
+  height: 15px;
+  background-color: gray;
+  border-radius: 15px 15px 10px 10px;
+  animation: run-mouse 4s linear infinite;
  
-.error-page h1 {
-  font-size: 4em;
-  margin-top: 30px;
 }
 
-.error-page p {
-  font-size: 1.2em;
-  color: #555;
+
+/* orejitas */
+.mouse::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 4px;
+  width: 6px;
+  height: 6px;
+  background-color: pink;
+  border-radius: 50%;
+  box-shadow: 12px 0 pink;
 }
 
-    .scene {
-      position: relative;
-      width: 100%;
-      height: 300px;
-      margin-top: 40px;
-      overflow: hidden;
-    }
+/* cola */
+.mouse::after {
+  content: "";
+  position: absolute;
+  left: -10px;  /* antes era right */
+  top: 5px;
+  width: 12px;
+  height: 2px;
+  background-color: gray;
+  border-radius: 2px;
+}
 
-    .cat {
-      position: absolute;
-      bottom: 20px;
-      left: 50px;
-      width: 100px;
-      height: 100px;
-      background: url("https://cdn-icons-png.flaticon.com/512/616/616408.png") no-repeat center/contain;
-    }
+/* nariz */
+.mouse-nose {
+  position: absolute;
+  top: 8px; 
+  left: 26px; 
+  width: 4px;
+  height: 4px;
+  background-color: rgb(149, 59, 74);
+  border-radius: 50%;
+  z-index: 2;
+}
 
-    .ball {
-      position: absolute;
-      bottom: 20px;
-      right: 50px;
-      width: 60px;
-      height: 60px;
-      background: url("https://cdn-icons-png.flaticon.com/512/5230/5230921.png") no-repeat center/contain;
-    }
+/* animación: recorre todo el contenedor */
+@keyframes run-mouse {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(390px);
+  }
+}
 
-    .mouse {
-      position: absolute;
-      bottom: 20px;
-      right: 50px;
-      width: 60px;
-      height: 60px;
-      background: url("https://cdn-icons-png.flaticon.com/512/616/616408.png") no-repeat center/contain;
-      display: none;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 12px 20px;
-      font-size: 1em;
-      color: #fff;
-      background: #0078d7;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background 0.3s ease;
-    }
-
-    .btn:hover {
-      background: #005a9e;
-    }
