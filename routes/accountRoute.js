@@ -1,12 +1,11 @@
-// accountRoutes.js
+// accountRoute.js
 
-const express = require('express');
-const router = express.Router();
-const accountController = require('../controllers/accountController');
-const errorHandler = require('../middleware/errorHandler');
+const express = require('express')
+const router = express.Router()
+const accountController = require('../controllers/accountController')
+const utilities = require('../utilities/')
 
-// GET route for the path 'account'
-// The actual path will be '/account' from the server.js file
-router.get('/', accountController.myAccount, errorHandler);
 
+// GET route for the 'my account' view
+router.get('/login', utilities.handleErrors(accountController.buildLogin))
 module.exports = router;

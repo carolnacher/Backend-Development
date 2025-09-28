@@ -4,6 +4,7 @@ const utilities = require("../utilities/")
 /* ****************************************
 *  Deliver login view
 * *************************************** */
+
 async function buildLogin(req, res, next) {
   let nav = await utilities.getNav()
   res.render("account/login", {
@@ -12,7 +13,5 @@ async function buildLogin(req, res, next) {
   })
 }
 
-module.exports = { buildLogin }
-
-
+module.exports = { buildLogin}
 
