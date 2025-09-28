@@ -279,7 +279,7 @@ nav li:hover {
   }
 }
 .container {
-  max-width: 1200px; /* Puedes ajustar este valor si lo necesitas */
+  max-width: 1200px; 
   margin: 20px auto;
   padding: 0 15px;
 }
@@ -342,7 +342,7 @@ nav li:hover {
   font-family: 'Indie Flower', cursive;
 }
 
-/* Estilos para el título y el mensaje dentro de la página de error */
+/* error pager */
 .error-page h1 {
   font-size: 3em; 
   color: #ff8c00; 
@@ -583,3 +583,80 @@ top: 50%;
   }
 }
 
+/*Form*/
+/* General styles for the body and main container */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #333; /* Dark background to make the checkered pattern stand out */
+    color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Container for the form */
+.login-container {
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent black for the login form */
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+}
+
+/* Styles for the headings */
+h1 {
+    color: #ffcc00; /* A color that mimics a racing flag or a car's lights */
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Styles for the form inputs */
+.login-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ffcc00; /* Matching the heading color for a unified theme */
+    border-radius: 5px;
+    background-color: #444;
+    color: #fff;
+    box-sizing: border-box; /* To make sure padding and border are included in the element's total width */
+}
+
+/* Styles for the login button */
+.login-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #ffcc00;
+    border: none;
+    border-radius: 5px;
+    color: #333; /* Dark text to contrast with the button */
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-container button:hover {
+    background-color: #e6b800; /* Slightly darker on hover */
+}
+
+/* Styles for the registration link */
+.login-container p {
+    margin-top: 20px;
+}
+
+.login-container a {
+    color: #ffcc00;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.login-container a:hover {
+    color: #fff;
+}

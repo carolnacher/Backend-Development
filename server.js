@@ -15,7 +15,7 @@ const baseController = require("./controllers/baseController")
 const utilities = require("./utilities/index")
 const session = require("express-session")
 const pool = require('./database/')
-
+const accountRoutes = require("./routes/accountRoute")
 /* ***********************
  * Middleware
  * ************************/
@@ -53,6 +53,10 @@ app.use(static)
 app.get("/", utilities.handleErrors(baseController.buildHome))
 // Inventory routes
 app.use("/inv", inventoryRoute)
+
+// Account routes
+app.use("/account", accountRoutes)
+
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {
   next({status: 404, message: 'Sorry,Our sleeping cat seems to have misplaced this page. Please try again later.'})
