@@ -16,6 +16,8 @@ const utilities = require("./utilities/index")
 const session = require("express-session")
 const pool = require('./database/')
 const accountRoutes = require("./routes/accountRoute")
+
+
 /* ***********************
  * Middleware
  * ************************/
