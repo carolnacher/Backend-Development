@@ -2,7 +2,7 @@
  <h1><%= title %></h1>
  <%- messages() %>
 
-<form action="/account/register" method="POST">
+<form action="/account/register" method="post">
   <label for="firstName">First Name:</label>
   <input type="text" id="firstName" name="account_firstname" value="<%= typeof account_firstname != 'undefined' ? account_firstname : '' %>" required>
   <br>
