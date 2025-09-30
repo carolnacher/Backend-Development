@@ -43,6 +43,8 @@ app.use(function(req, res, next){
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
+
+
 /* ***********************
  * View Engine and Templates
  *************************/
