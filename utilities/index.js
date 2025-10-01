@@ -1,8 +1,6 @@
 const invModel = require("../models/inventory-model")
 const Util = {}
 
-
-
 /* ************************
  * Constructs the nav HTML unordered list
  ************************** */
@@ -25,16 +23,14 @@ Util.getNav = async function (req, res, next) {
   list += "</ul>"
   return list
 }
-
-module.exports = Util
-
-
 /* ****************************************
  * Middleware For Handling Errors
  * Wrap other function in this for 
  * General Error Handling
  **************************************** */
 Util.handleErrors = fn => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next)
+
+
 
 /* **************************************
 * Build the classification view HTML
@@ -68,3 +64,70 @@ Util.buildClassificationGrid = async function(data){
   }
   return grid
 }
+/* ****************************************
+ * Build the vehicle detail view HTML
+ * Expected input: Single vehicle object 
+ * *************************************** */
+Util.buildDetailView = function (vehicle) {
+    // Check if the vehicle data is valid before proceeding
+    if (!vehicle || Object.keys(vehicle).length === 0) {
+        return '<p class="notice">Sorry, no vehicle data could be found.</p>';
+    }
+
+    // Format price for display
+    const formattedPrice = new Intl.NumberFormat('en-US', { 
+        style: 'currency', 
+        currency: 'USD' 
+    }).format(vehicle.inv_price);
+
+    // Format miles for display
+    const formattedMiles = new Intl.NumberFormat('en-US').format(vehicle.inv_miles);
+
+    let html = '<div id="inventory-detail" class="inv-detail-container">';
+    
+    // Vehicle Image
+    html += '<div class="inv-detail-image">';
+    html += '<img src="' + vehicle.inv_image + '" alt="Image of ' + vehicle.inv_make + ' ' + vehicle.inv_model + '" />';
+    html += '</div>';
+    
+    // Vehicle Details and Price
+    html += '<div class="inv-detail-info">';
+    
+    // Price
+    html += '<p class="detail-price">Price: ' + formattedPrice + '</p>';
+
+    // Description
+    html += '<p class="detail-description">';
+    html += '<span class="detail-label">Description:</span> ' + vehicle.inv_description;
+    html += '</p>';
+
+    // Detail List (Specs)
+    html += '<div class="detail-specs">';
+    html += '<h2>Vehicle Specifics</h2>';
+    html += '<ul class="spec-list">';
+    
+    // Year
+    html += '<li><span class="spec-label">Year:</span> <span>' + vehicle.inv_year + '</span></li>';
+    
+    // Mileage
+    html += '<li><span class="spec-label">Mileage:</span> <span>' + formattedMiles + ' miles</span></li>';
+
+    // Color
+    html += '<li><span class="spec-label">Color:</span> <span>' + vehicle.inv_color + '</span></li>';
+    
+    // Classification (assuming classification_name is available from the model join)
+    if (vehicle.classification_name) {
+        html += '<li><span class="spec-label">Classification:</span> <span>' + vehicle.classification_name + '</span></li>';
+    }
+    
+    html += '</ul>';
+    html += '</div>'; // End Detail Specs
+    
+    html += '</div>'; // End Detail Info
+    
+    html += '</div>'; // End Container
+    
+    return html;
+}
+
+module.exports = Util;

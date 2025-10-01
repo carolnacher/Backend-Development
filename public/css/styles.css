@@ -54,46 +54,64 @@ nav li {
 nav li:hover {
   color: #00bfff;      
 }
+a {
+  color: #007bff;}
 
 /*images styles*/
 
-.car-section {
-  position: relative;  
-  display: inline-block; 
-  width: 100%;
-  max-width: 900px;     
-  margin: 0 auto;       
+/* Container for the grid of vehicles */
+/* El contenedor de grid es ahora la lista con el ID 'invdisplay' */
+#inv-display {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Crea 3 columnas de igual ancho */
+  gap: 20px; /* Agrega espacio entre los elementos del grid */
+  padding: 20px;
+  background-color: #1a1a1a; /* Fondo oscuro */
+  border-radius: 10px;
+  list-style-type: none; /* Elimina los puntos o números de la lista */
+  margin: 0;
 }
 
-.car-image {
-  display: block;
-  width: 80%;           
-  max-width: 600px;     
-  height: auto;
-  margin: 0 auto;     
-  border-radius: 10px;
-}
-.car-info {
-  position: absolute;
-  top: 20px;     
-  left: 20px;    
-  background-color: rgba(96, 3, 3, 0.08); 
+/* Estilo para cada elemento individual de la lista (<li>) */
+#inv-display li {
+  background-color: #2c2c2c; /* Fondo oscuro ligeramente más claro para contraste */
+  border: 1px solid #ff4500; /* Borde naranja vibrante */
+  border-radius: 8px;
   padding: 15px;
-  border-radius: 10px;
-  color: #00bfff; /* celeste */
+  text-align: center;
+  box-shadow: 0 0 10px rgba(255, 69, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.car-info h2, 
-.car-info h3 {
-  color: #00bfff; 
+
+/* Efecto hover para cada elemento de la lista (<li>) */
+#inv-display li:hover {
+  transform: translateY(-5px); /* Eleva el elemento ligeramente */
+  box-shadow: 0 0 20px rgba(255, 69, 0, 0.6); /* Brillo más intenso */
+}
+
+/* Estilos para títulos/nombres dentro de los elementos de la lista */
+#inv-display li h2 {
+  color: #00ffff; /* Azul eléctrico */
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+/* Estilos para imágenes dentro de los elementos de la lista */
+#inv-display li img {
+  max-width: 100%; /* Asegura que la imagen quepa en su contenedor */
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+/* Estilos para otros detalles dentro de los elementos de la lista */
+#inv-display li p {
+  color: #f0f0f0; /* Texto gris claro */
+  font-size: 1rem;
   margin: 5px 0;
 }
-
-.button-image {
-  display: block;
-  margin-top: 10px;
-  width: 150px;
-}
-
 /*header styles*/
 #top-header {
   display: flex;
@@ -683,5 +701,46 @@ span {
   content: ' *';
   color: red;
   font-weight: bold;
-  margin-left: 4px;
+  margin-left: 4px; 
+}
+
+/* Container for car details with the racing theme */
+.detail-container {
+    background-color: #1a1a1a; /* Dark background */
+    color: #f0f0f0; /* Light gray text */
+    font-family: 'Arial', sans-serif; /* A simple, modern font. You could also use a custom font like 'Rajdhani' or 'Orbitron' */
+    padding: 30px;
+    border: 2px solid #ff4500; /* A vibrant orange border for an accent color */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 69, 0, 0.4); /* Glowing effect */
+}
+
+/* Headings within the container */
+.detail-container h1,
+.detail-container h2 {
+    color: #00ffff; /* Electric blue for headings */
+    text-transform: uppercase;
+    font-family: 'Arial Black', sans-serif;
+    letter-spacing: 2px;
+    border-bottom: 2px solid #00ffff;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Styling for details (key-value pairs) */
+.detail-container p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+/* Highlighted details or key information */
+.detail-container strong {
+    color: #ff4500; /* Vibrant orange for emphasis */
+    font-weight: bold;
+}
+
+.detail-container a:hover {
+    background-color: #e63900; /* Darker orange on hover */
+    transform: scale(1.05); /* Slight grow effect */
 }

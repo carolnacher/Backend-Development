@@ -1,0 +1,27 @@
+<%# ============================= %>
+<%# The Content Heading %>
+<%# ============================= %>
+<% if (title) { %>
+
+<h1><%= title %></h1>
+<% } else {
+// Si no hay título, redirigimos al inicio.
+res.redirect('/')
+} %>
+<%# ============================= %>
+<%# Section: Messages %>
+<%# ============================= %>
+<%# messages() %>
+
+<%# ============================= %>
+<%# Section: Detalle del Vehículo %>
+<%# ============================= %>
+
+<div class="detail-container">
+
+<%- detail %>
+
+
+<a href="/inv/trigger-error">Simular Error 500</a>
+
+</div>

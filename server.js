@@ -70,6 +70,7 @@ app.use(async (req, res, next) => {
   next({status: 404, message: 'Sorry,Our sleeping cat seems to have misplaced this page. Please try again later.'})
 })
 
+
 /* ***********************
  * Local Server Information
  * Values from .env (environment) file
@@ -91,6 +92,9 @@ app.use(async (err, req, res, next) => {
     nav
   })
 })
+
+
+
 
 /* ***********************
  * Log statement to confirm server operation
