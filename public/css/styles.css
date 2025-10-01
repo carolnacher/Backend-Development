@@ -100,7 +100,7 @@ a {
 
 /* Estilos para imágenes dentro de los elementos de la lista */
 #inv-display li img {
-  max-width: 100%; /* Asegura que la imagen quepa en su contenedor */
+  max-width: 100%; 
   height: auto;
   border-radius: 5px;
   margin-bottom: 10px;
@@ -110,9 +110,9 @@ a {
   height: auto;
 }
 
-/* Estilos para otros detalles dentro de los elementos de la lista */
+/* Estilos para los detalles dentro de los elementos de la lista */
 #inv-display li p {
-  color: #f0f0f0; /* Texto gris claro */
+  color: #f0f0f0; 
   font-size: 1rem;
   margin: 5px 0;
 }
@@ -213,7 +213,6 @@ a {
 
 /*form styles*/
 
-/* Estilo para el contenedor del formulario */
 form {
   max-width: 400px;
   margin: 20px auto;
@@ -238,7 +237,7 @@ label {
   color: #555;
 }
 
-/* Estilo para los campos de texto, email y contraseña */
+/* Estilo de los campos de texto, email y contraseña */
 input[type="text"],
 input[type="email"],
 input[type="password"] {
@@ -246,12 +245,11 @@ input[type="password"] {
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 4px;
-  box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+  box-sizing: border-box; 
   font-size: 16px;
   transition: border-color 0.3s;
 }
 
-/* Efecto al enfocar los campos */
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus {
@@ -281,7 +279,7 @@ input[type="submit"]:hover {
   background-color: #0056b3;
 }
 
-/* Estilo para el párrafo y el enlace de "Register here" (si solo está en un formulario) */
+/* Estilo para el párrafo y el enlace de "Register here" */
 .login-message {
   text-align: center;
   margin-top: 15px;
@@ -316,19 +314,19 @@ span {
 
 /* Container for car details with the racing theme */
 .detail-container {
-    background-color: #1a1a1a; /* Dark background */
-    color: #f0f0f0; /* Light gray text */
-    font-family: 'Arial', sans-serif; /* A simple, modern font. You could also use a custom font like 'Rajdhani' or 'Orbitron' */
+    background-color: #1a1a1a; 
+    color: #f0f0f0;
+    font-family: 'Arial', sans-serif; 
     padding: 30px;
-    border: 2px solid #ff4500; /* A vibrant orange border for an accent color */
+    border: 2px solid #ff4500; 
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(255, 69, 0, 0.4); /* Glowing effect */
+    box-shadow: 0 0 20px rgba(255, 69, 0, 0.4); 
 }
 
 /* Headings within the container */
 .detail-container h1,
 .detail-container h2 {
-    color: #00ffff; /* Electric blue for headings */
+    color: #00ffff;
     text-transform: uppercase;
     font-family: 'Arial Black', sans-serif;
     letter-spacing: 2px;
@@ -346,13 +344,13 @@ span {
 
 /* Highlighted details or key information */
 .detail-container strong {
-    color: #ff4500; /* Vibrant orange for emphasis */
+    color: #ff4500; 
     font-weight: bold;
 }
 
 .detail-container a:hover {
-    background-color: #e63900; /* Darker orange on hover */
-    transform: scale(1.05); /* Slight grow effect */
+    background-color: #e63900; 
+    transform: scale(1.05);
 }
 
 /* Mobile view */
