@@ -207,7 +207,164 @@ a {
 }
 
 
+/*form styles*/
+
+/* Estilo para el contenedor del formulario */
+form {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para los contenedores de los campos (como los <div>) */
+form div {
+  margin-bottom: 15px;
+}
+
+/* Estilo para las etiquetas de los campos */
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+/* Estilo para los campos de texto, email y contraseña */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+/* Efecto al enfocar los campos */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Estilo para los botones */
+button[type="submit"],
+input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+}
+
+/* Efecto al pasar el cursor sobre los botones */
+button[type="submit"]:hover,
+input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Estilo para el párrafo y el enlace de "Register here" (si solo está en un formulario) */
+.login-message {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+  color: #777;
+}
+
+.login-message a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-message a:hover {
+  text-decoration: underline;
+}
+span {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 0.9rem; 
+  color: #6c757d; 
+  line-height: 1.4; 
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 5px; 
+}
+.required-field::after {
+  content: ' *';
+  color: red;
+  font-weight: bold;
+  margin-left: 4px; 
+}
+
+/* Container for car details with the racing theme */
+.detail-container {
+    background-color: #1a1a1a; /* Dark background */
+    color: #f0f0f0; /* Light gray text */
+    font-family: 'Arial', sans-serif; /* A simple, modern font. You could also use a custom font like 'Rajdhani' or 'Orbitron' */
+    padding: 30px;
+    border: 2px solid #ff4500; /* A vibrant orange border for an accent color */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 69, 0, 0.4); /* Glowing effect */
+}
+
+/* Headings within the container */
+.detail-container h1,
+.detail-container h2 {
+    color: #00ffff; /* Electric blue for headings */
+    text-transform: uppercase;
+    font-family: 'Arial Black', sans-serif;
+    letter-spacing: 2px;
+    border-bottom: 2px solid #00ffff;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Styling for details (key-value pairs) */
+.detail-container p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+/* Highlighted details or key information */
+.detail-container strong {
+    color: #ff4500; /* Vibrant orange for emphasis */
+    font-weight: bold;
+}
+
+.detail-container a:hover {
+    background-color: #e63900; /* Darker orange on hover */
+    transform: scale(1.05); /* Slight grow effect */
+}
+
 /* Mobile view */
+@media (max-width: 600px) {
+  #inv-display {
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
+   #inv-display li img {
+    max-height: 200px; 
+    object-fit: cover; 
+  }
+  .inv-detail-image img {
+        max-width: 90%; /* Haz la imagen casi de ancho completo */
+    }
+
 @media (max-width: 768px) {
    body {
     background-image: none !important;  
@@ -247,27 +404,25 @@ a {
   }
 
   /* Car Section */
-  .car-section {
-    width: 100%;
-    max-width: 100%;
+ @media (max-width: 900px) {
+  #inv-display {
+    grid-template-columns: repeat(2, 1fr); 
   }
+   #inv-display {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+ .inv-detail-image img {
+        max-width: 75%; 
+    }
 
-  .car-image {
-    width: 100%;  
-    max-width: 100%;
+/* Tablet view */
+@media (max-width: 1024px) {
+  #inv-display {
+    grid-template-columns: 1fr; 
+    padding: 10px; 
   }
-
-  .car-info {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    padding: 10px;
-    font-size: 14px; 
-  }
-
-  .button-image {
-    width: 120px; 
-  }
+}
 
   /* Second Section */
   .second-section {
@@ -601,146 +756,4 @@ top: 50%;
   }
 }
 
-/*form styles*/
-
-/* Estilo para el contenedor del formulario */
-form {
-  max-width: 400px;
-  margin: 20px auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background-color: #f9f9f9;
-  font-family: Arial, sans-serif;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Estilo para los contenedores de los campos (como los <div>) */
-form div {
-  margin-bottom: 15px;
-}
-
-/* Estilo para las etiquetas de los campos */
-label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-  color: #555;
-}
-
-/* Estilo para los campos de texto, email y contraseña */
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
-  font-size: 16px;
-  transition: border-color 0.3s;
-}
-
-/* Efecto al enfocar los campos */
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus {
-  border-color: #007bff;
-  outline: none;
-}
-
-/* Estilo para los botones */
-button[type="submit"],
-input[type="submit"] {
-  width: 100%;
-  padding: 10px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  margin-top: 10px;
-}
-
-/* Efecto al pasar el cursor sobre los botones */
-button[type="submit"]:hover,
-input[type="submit"]:hover {
-  background-color: #0056b3;
-}
-
-/* Estilo para el párrafo y el enlace de "Register here" (si solo está en un formulario) */
-.login-message {
-  text-align: center;
-  margin-top: 15px;
-  font-size: 14px;
-  color: #777;
-}
-
-.login-message a {
-  color: #007bff;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.login-message a:hover {
-  text-decoration: underline;
-}
-span {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  font-size: 0.9rem; 
-  color: #6c757d; 
-  line-height: 1.4; 
-  display: block;
-  margin-top: 5px;
-  margin-bottom: 5px; 
-}
-.required-field::after {
-  content: ' *';
-  color: red;
-  font-weight: bold;
-  margin-left: 4px; 
-}
-
-/* Container for car details with the racing theme */
-.detail-container {
-    background-color: #1a1a1a; /* Dark background */
-    color: #f0f0f0; /* Light gray text */
-    font-family: 'Arial', sans-serif; /* A simple, modern font. You could also use a custom font like 'Rajdhani' or 'Orbitron' */
-    padding: 30px;
-    border: 2px solid #ff4500; /* A vibrant orange border for an accent color */
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(255, 69, 0, 0.4); /* Glowing effect */
-}
-
-/* Headings within the container */
-.detail-container h1,
-.detail-container h2 {
-    color: #00ffff; /* Electric blue for headings */
-    text-transform: uppercase;
-    font-family: 'Arial Black', sans-serif;
-    letter-spacing: 2px;
-    border-bottom: 2px solid #00ffff;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-}
-
-/* Styling for details (key-value pairs) */
-.detail-container p {
-    font-size: 16px;
-    line-height: 1.6;
-    margin: 10px 0;
-}
-
-/* Highlighted details or key information */
-.detail-container strong {
-    color: #ff4500; /* Vibrant orange for emphasis */
-    font-weight: bold;
-}
-
-.detail-container a:hover {
-    background-color: #e63900; /* Darker orange on hover */
-    transform: scale(1.05); /* Slight grow effect */
 }
