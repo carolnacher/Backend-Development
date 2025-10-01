@@ -105,6 +105,10 @@ a {
   border-radius: 5px;
   margin-bottom: 10px;
 }
+.inv-detail-image img {
+  max-width: 100%;
+  height: auto;
+}
 
 /* Estilos para otros detalles dentro de los elementos de la lista */
 #inv-display li p {
@@ -221,7 +225,7 @@ form {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilo para los contenedores de los campos (como los <div>) */
+
 form div {
   margin-bottom: 15px;
 }
@@ -352,19 +356,6 @@ span {
 }
 
 /* Mobile view */
-@media (max-width: 600px) {
-  #inv-display {
-    grid-template-columns: 1fr;
-    padding: 10px;
-  }
-   #inv-display li img {
-    max-height: 200px; 
-    object-fit: cover; 
-  }
-  .inv-detail-image img {
-        max-width: 90%; /* Haz la imagen casi de ancho completo */
-    }
-
 @media (max-width: 768px) {
    body {
     background-image: none !important;  
@@ -408,13 +399,7 @@ span {
   #inv-display {
     grid-template-columns: repeat(2, 1fr); 
   }
-   #inv-display {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
- .inv-detail-image img {
-        max-width: 75%; 
-    }
 
 /* Tablet view */
 @media (max-width: 1024px) {
@@ -482,6 +467,7 @@ span {
 /* Vehicle image */
 .inventory-item img {
   max-width: 100%;
+  height: auto;
   border-radius: 8px;
   margin-bottom: 10px;
 }
@@ -756,4 +742,3 @@ top: 50%;
   }
 }
 
-}
