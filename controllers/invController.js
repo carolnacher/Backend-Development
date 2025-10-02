@@ -28,6 +28,9 @@ invCont.buildByVehicleId = async function (req, res, next) {
   if (data) {
     const detail = await utilities.buildDetailView(data);
     let nav = await utilities.getNav();
+
+    const classificationSelect = await utilities.buildClassificationList()
+
     const vehicleName = data.inv_make + " " + data.inv_model;
 
     res.render("./inventory/detail", {
