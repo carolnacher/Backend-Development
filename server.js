@@ -12,7 +12,7 @@ const app = express()
 const static = require("./routes/static")
 const inventoryRoute = require("./routes/inventoryRoute")
 const baseController = require("./controllers/baseController")
-const utilities = require("./utilities/index")
+const utilities = require("./utilities/")
 const session = require("express-session")
 const pool = require('./database/')
 const accountRoutes = require("./routes/accountRoute")
@@ -32,7 +32,11 @@ const cookieParser = require("cookie-parser")
   resave: true,
   saveUninitialized: true,
   name: 'sessionId',
+  
+  
 }))
+app.use(cookieParser())
+app.use(utilities.checkJWTToken)
 
 // Express Messages Middleware
 app.use(require('connect-flash')())
@@ -45,6 +49,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use(cookieParser())
+app.use(utilities.checkJWTToken)
 
 /* ***********************
  * View Engine and Templates
