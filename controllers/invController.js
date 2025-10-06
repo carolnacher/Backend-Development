@@ -39,7 +39,7 @@ invCont.buildByVehicleId = async function (req, res, next) {
       detail,
     });
   } else {
-    // Maneja el caso en que no se encuentre el vehículo
+   
     let nav = await utilities.getNav();
     const message = "Lo siento, no se encontró el vehículo.";
     res.render("errors/error", {
@@ -50,4 +50,20 @@ invCont.buildByVehicleId = async function (req, res, next) {
   }
 };
 
+/* ***************************
+ * Build vehicle management view
+ * ************************** */
+
+/* ***************************
+ *  Return Inventory by Classification As JSON
+ * ************************** */
+invCont.getInventoryJSON = async (req, res, next) => {
+  const classification_id = parseInt(req.params.classification_id)
+  const invData = await invModel.getInventoryByClassificationId(classification_id)
+  if (invData[0].inv_id) {
+    return res.json(invData)
+  } else {
+    next(new Error("No data returned"))
+  }
+}
 module.exports = invCont; 

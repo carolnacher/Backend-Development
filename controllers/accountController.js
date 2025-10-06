@@ -111,7 +111,7 @@ async function registerAccount(req, res) {
     res.status(500).render("account/register", {
       title: "Register",
       nav,
-      errors: null,
+      errors: null,wxez
     })
   }
 }
@@ -131,7 +131,7 @@ async function getAccountByEmail (account_email) {
 
 async function buildManagement(req, res, next) {
   let nav = await utilities.getNav()
-  res.render("account/Management", {
+  res.render("account/management", {
     title: "Management",
     nav,
     errors: null
