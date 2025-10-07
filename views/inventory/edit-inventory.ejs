@@ -1,0 +1,136 @@
+
+  <h1><%= title %></h1>
+  <%- messages() %>
+
+  <% if (typeof errors !== 'undefined' && errors) { %>
+    <ul class="notice">
+      <% errors.array().forEach(error => { %>
+        <li><%= error.msg %></li>
+      <% }) %>
+    </ul>
+  <% } %>
+
+
+  <form action="/inv/update" method="post">
+
+    <!-- Classification -->
+    <label for="classificationList">Classification</label>
+    <%- classificationSelect %>
+
+    <!-- Make -->
+    <label for="inv_make">Make</label>
+    <input 
+      type="text" 
+      id="inv_make" 
+      name="inv_make" 
+      required 
+      pattern="^[A-Za-z0-9 ]{2,50}$"
+      value="<%= typeof inv_make !== 'undefined' ? inv_make : '' %>"
+    >
+
+    <!-- Model -->
+    <label for="inv_model">Model</label>
+    <input 
+      type="text" 
+      id="inv_model" 
+      name="inv_model" 
+      required 
+      pattern="^[A-Za-z0-9 ]{2,50}$"
+      value="<%= typeof inv_model !== 'undefined' ? inv_model : '' %>"
+    >
+
+    <!-- Year -->
+    <label for="inv_year">Year</label>
+    <input 
+      type="number" 
+      id="inv_year" 
+      name="inv_year" 
+      required 
+      min="1900" 
+      max="2099"
+      value="<%= typeof inv_year !== 'undefined' ? inv_year : '' %>"
+    >
+
+    <!-- Description -->
+    <label for="inv_description">Description</label>
+    <textarea 
+      id="inv_description" 
+      name="inv_description" 
+      required
+    ><%= typeof inv_description !== 'undefined' ? inv_description : '' %></textarea>
+
+    <!-- Image -->
+    <label for="inv_image">Image Path</label>
+    <input 
+      type="text" 
+      id="inv_image" 
+      name="inv_image" 
+      required
+      value="<%= typeof inv_image !== 'undefined' ? inv_image : '/images/vehicles/no-image.png' %>"
+    >
+
+    <!-- Thumbnail -->
+    <label for="inv_thumbnail">Thumbnail Path</label>
+    <input 
+      type="text" 
+      id="inv_thumbnail" 
+      name="inv_thumbnail" 
+      required
+      value="<%= typeof inv_thumbnail !== 'undefined' ? inv_thumbnail : '/images/vehicles/no-image-tn.png' %>"
+    >
+
+    <!-- Price -->
+    <label for="inv_price">Price</label>
+    <input 
+      type="number" 
+      id="inv_price" 
+      name="inv_price" 
+      required 
+      min="0" 
+      step="0.01"
+      value="<%= typeof inv_price !== 'undefined' ? inv_price : '' %>"
+    >
+
+    <!-- Miles -->
+    <label for="inv_miles">Miles</label>
+    <input 
+      type="number" 
+      id="inv_miles" 
+      name="inv_miles" 
+      required 
+      min="0"
+      value="<%= typeof inv_miles !== 'undefined' ? inv_miles : '' %>"
+    >
+
+    <!-- Color -->
+    <label for="inv_color">Color</label>
+    <input 
+      type="text" 
+      id="inv_color" 
+      name="inv_color" 
+      required 
+      pattern="^[A-Za-z ]{2,30}$"
+      value="<%= typeof inv_color !== 'undefined' ? inv_color : '' %>"
+    >
+
+    <input type="submit" name="submit" value="Update Vehicle">
+  </form>
+</main>
+
+<script>
+  document.getElementById("editInventoryForm").addEventListener("submit", function (event) {
+    const form = event.target
+    if (!form.checkValidity()) {
+      event.preventDefault()
+      alert("Please fill in all required fields correctly before submitting.")
+    }
+  })
+</script>
+
+
+
+
+
+
+
+

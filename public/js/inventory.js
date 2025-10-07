@@ -18,7 +18,8 @@
    buildInventoryList(data); 
   }) 
   .catch(function (error) { 
-   console.log('There was a problem: ', error.message) 
+   console.log('JSON fetch error: ', error.message) 
+   throw error ('Fetch of JSON data failed')
   }) 
  })
 

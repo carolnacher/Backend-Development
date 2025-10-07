@@ -18,5 +18,8 @@ router.post("/newVehicle", utilities.handleErrors(invController.addInventory))
 router.get("/addClassification", utilities.handleErrors(invController.buildAddClassification))
 router.post("/addClassification", utilities.handleErrors(invController.addClassification))
 
+router.post("/edit/:inventory_id", utilities.handleErrors(invController.updateInventory));
+router.get("/edit/:inventory_id", utilities.handleErrors(invController.buildEditInventoryView));
+
 
 module.exports = router;

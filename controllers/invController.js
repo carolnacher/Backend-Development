@@ -57,8 +57,8 @@ invCont.buildManagementView = async function (req, res, next) {
     res.render("./inventory/managementView", {
       title: "Vehicle Management",
       nav,
-      classificationSelect,
       errors: null,
+      classificationSelect,
     })
   } catch (error) {
     next(error)
@@ -176,5 +176,59 @@ invCont.addClassification = async function (req, res) {
     })
   }
 }
+// ***************************
+// Build edit inventory view
+// ***************************
+invCont.buildEditInventoryView = async function (req, res, next) {
+    try {
+        const inventory_id = req.params.inventory_id; // capturamos el parámetro de la URL
+        const inventoryItem = await invModel.getInventoryById(inventory_id); // función que obtiene el vehículo por id
+
+        if (!inventoryItem) {
+            // si no se encuentra el vehículo, redirigimos o mostramos un error
+            return res.status(404).render("errors/404", { message: "Vehicle not found" });
+        }
+
+        // Construimos la vista de edición usando tus utilidades
+        let nav = await utilities.getNav(); // por ejemplo, tu menú de navegación
+        res.render("inventory/edit-inventory", {
+            title: `Edit ${inventoryItem.make} ${inventoryItem.model}`,
+            nav,
+            inventoryItem, // pasamos el objeto del vehículo a la vista
+        });
+    } catch (error) {
+        next(error);
+    }
+};
+
+/* ***************************
+ *  Build edit inventory view
+ * ************************** */
+invCont.editInventoryView = async function (req, res, next) {
+  const inv_id = parseInt(req.params.inv_id)
+  let nav = await utilities.getNav()
+  const itemData = await invModel.getInventoryById(inv_id)
+  const classificationSelect = await utilities.buildClassificationList(itemData.classification_id)
+  const itemName = `${itemData.inv_make} ${itemData.inv_model}`
+  res.render("./inventory/edit-inventory", {
+    title: "Edit " + itemName,
+    nav,
+    classificationSelect: classificationSelect,
+    errors: null,
+    inv_id: itemData.inv_id,
+    inv_make: itemData.inv_make,
+    inv_model: itemData.inv_model,
+    inv_year: itemData.inv_year,
+    inv_description: itemData.inv_description,
+    inv_image: itemData.inv_image,
+    inv_thumbnail: itemData.inv_thumbnail,
+    inv_price: itemData.inv_price,
+    inv_miles: itemData.inv_miles,
+    inv_color: itemData.inv_color,
+    classification_id: itemData.classification_id
+  })
+}
+
+
 
 module.exports = invCont
