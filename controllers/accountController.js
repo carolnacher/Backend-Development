@@ -138,4 +138,5 @@ async function buildManagement(req, res, next) {
   })
 }
 
+
 module.exports = { buildLogin, getAccountByEmail, buildRegister, registerAccount, accountLogin , buildManagement};

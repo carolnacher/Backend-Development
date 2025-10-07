@@ -5,6 +5,7 @@ const router = express.Router();
 const accountController = require('../controllers/accountController');
 const utilities = require('../utilities/');
 const validate = require('../utilities/account-validation');
+const invController = require("../controllers/invController")
 
 
 // GET route for the 'my account' view
@@ -14,6 +15,8 @@ router.get('/login', utilities.handleErrors(accountController.buildLogin));
 router.get('/register', utilities.handleErrors(accountController.buildRegister));
 
 router.get("/", utilities.checkLogin, utilities.handleErrors(accountController.buildManagement));
+
+router.get("/", utilities.handleErrors(invController.buildManagementView));
 
 // Process the registration data
 router.post(

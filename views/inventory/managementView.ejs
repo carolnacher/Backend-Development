@@ -1,22 +1,29 @@
 
  <h1><%= title %></h1>
  <%- messages() %>
- <% if (errors) { %>
+ <% if (typeof errors !== 'undefined' && errors) { %>
   <ul class="notice">
- <% errors.array().forEach(error => { %>
-   <li><%= error.msg %></li>
-<%  }) %>
- </ul>
+    <% errors.array().forEach(error => { %>
+      <li><%= error.msg %></li>
+    <% }) %>
+  </ul>
 <% } %>
 
-<ul>
-  <li><a href="/inv/newClassification">➕ Add New Classification</a></li>
-  <li><a href="/inv/newVehicle">➕ Add New Vehicle</a></li>
-</ul>
+  <section class="management-options">
+    <ul>
+      <li><a href="/inv/addClassification" title="Add a new classification">Add New Classification</a></li>
+      <li><a href="/inv/newVehicle" title="Add a new vehicle">Add New Vehicle</a></li>
+    </ul>
+  </section>
 
-<h2>Manage Inventory</h2>
-<p>Choose a classification to see those inventory items.</p>
+  <section class="inventory-display">
+    <h2>Inventory by Classification</h2>
+    <form id="classificationForm">
+      <label for="classificationList">Select Classification:</label>
+      <%- classificationSelect %>
+    </form>
 
-<table id="inventoryDisplay"></table>
 <noscript>JavaScript must be enabled to use this page.</noscript>
 <script src="/js/inventory.js"></script>
+
+   

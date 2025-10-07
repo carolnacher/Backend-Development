@@ -12,5 +12,11 @@ router.get("/trigger-error", errorController.throwError);
 router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON));
 router.get("/", utilities.handleErrors(invController.buildManagementView))
 
+router.get("/newVehicle", utilities.handleErrors(invController.buildAddInventory))
+router.post("/newVehicle", utilities.handleErrors(invController.addInventory))
+
+router.get("/addClassification", utilities.handleErrors(invController.buildAddClassification))
+router.post("/addClassification", utilities.handleErrors(invController.addClassification))
+
 
 module.exports = router;
