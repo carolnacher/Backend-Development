@@ -138,5 +138,10 @@ async function buildManagement(req, res, next) {
   })
 }
 
+async function accountLogout(req, res) {
+  res.clearCookie("jwt");       // borra el JWT
+  req.flash("notice", "You have been logged out.");
+  res.redirect("/");            // vuelve a la home
+}
 
-module.exports = { buildLogin, getAccountByEmail, buildRegister, registerAccount, accountLogin , buildManagement};
+module.exports = { buildLogin, getAccountByEmail, buildRegister, registerAccount, accountLogin , buildManagement,accountLogout};

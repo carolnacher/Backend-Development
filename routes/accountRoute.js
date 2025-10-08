@@ -18,6 +18,9 @@ router.get("/", utilities.checkLogin, utilities.handleErrors(accountController.b
 
 router.get("/", utilities.handleErrors(invController.buildManagementView));
 
+router.get("/logout", accountController.accountLogout);
+
+
 // Process the registration data
 router.post(
   "/register",
