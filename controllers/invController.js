@@ -1,4 +1,5 @@
 const invModel = require("../models/inventory-model")
+const reviewModel = require("../models/review-model")
 const utilities = require("../utilities/")
 
 const invCont = {}
@@ -50,12 +51,14 @@ invCont.buildByVehicleId = async function (req, res, next) {
     if (data) {
       const detail = await utilities.buildDetailView(data)
       let nav = await utilities.getNav()
-      const vehicleName = data.inv_make + " " + data.inv_model
+      const reviews = await reviewModel.getReviewsByVehicle(vehicle_id)
 
       res.render("./inventory/detail", {
-        title: vehicleName,
+        title: data.inv_make + " " + data.inv_model,
         nav,
         detail,
+        reviews,
+        vehicle: data,
       })
     } else {
       let nav = await utilities.getNav()

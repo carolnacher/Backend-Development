@@ -94,6 +94,48 @@ async function updateAccountPassword(account_id, account_password) {
     }
 }
 
+async function addReview(account_id, inv_id, rating, comment) {
+  try {
+    const sql = `
+      INSERT INTO reviews (account_id, inv_id, rating, comment)
+      VALUES ($1, $2, $3, $4)
+      RETURNING *;
+    `;
+    const result = await pool.query(sql, [account_id, inv_id, rating, comment]);
+    return result.rows[0];
+  } catch (error) {
+    console.error("Error adding review:", error);
+    throw error;
+  }
+}
+
+async function getReviewsByVehicle(inv_id) {
+  try {
+    const sql = `
+      SELECT r.*, a.account_firstname, a.account_lastname
+      FROM reviews r
+      JOIN account a ON r.account_id = a.account_id
+      WHERE r.inv_id = $1
+      ORDER BY r.created_at DESC;
+    `;
+    const result = await pool.query(sql, [inv_id]);
+    return result.rows;
+  } catch (error) {
+    console.error("Error fetching reviews:", error);
+    throw error;
+  }
+}
+
+async function deleteReview(review_id, account_id) {
+  try {
+    const sql = `DELETE FROM reviews WHERE review_id = $1 AND account_id = $2;`;
+    const result = await pool.query(sql, [review_id, account_id]);
+    return result.rowCount;
+  } catch (error) {
+    console.error("Error deleting review:", error);
+    throw error;
+  }
+}
 
 module.exports = {
     registerAccount, 
@@ -101,5 +143,8 @@ module.exports = {
     checkExistingEmail,
     getAccountById,
     updateAccountInfo,
-    updateAccountPassword
+    updateAccountPassword,
+    addReview,
+    getReviewsByVehicle,
+    deleteReview
 }

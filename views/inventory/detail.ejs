@@ -2,23 +2,71 @@
 <%# The Content Heading %>
 <%# ============================= %>
 <% if (title) { %>
+  <h1><%= title %></h1>
+<% } %>
+<%# ============================= %>
+<%# Section: Vehicle Detail %>
+<%# ============================= %>
 
-<h1><%= title %></h1>
-<% } else {
-res.redirect('/')
-} %>
-<%# ============================= %>
-<%# Section: Messages %>
-<%# ============================= %>
-<%# messages() %>
-
-<%# ============================= %>
-<%# Section: Detalle del Vehículo %>
-<%# ============================= %>
 <h2>Manage Inventory</h2>
+
 <div class="detail-container">
+  <%- detail %>
 
-<%- detail %>
+  <h3>Opinions on Security</h3>
 
+  <ul>
+    <% if (reviews && reviews.length > 0) { %>
+      <% reviews.forEach(r => { %>
+        <li>
+          <strong><%= r.account_firstname %>:</strong>
+          ⭐ <%= r.rating %>/5
+          <p><%= r.comment %></p>
+          <small><%= new Date(r.created_at).toLocaleDateString() %></small>
+        </li>
+      <% }) %>
+    <% } else { %>
+      <li>There are no reviews yet. Be the first to leave a review!</li>
+    <% } %>
+  </ul>
 
+  <% if (locals.loggedin) { %>
+    <button id="toggleReviewForm" class="btn">Leave a Safety Review</button>
+
+    <form id="reviewForm" action="/reviews/add" method="post" style="display: none; margin-top: 1rem;">
+      <input type="hidden" name="inv_id" value="<%= vehicle.inv_id %>">
+
+      <label for="rating">Safety Rating (1-5):</label>
+      <select name="rating" id="rating" required>
+        <option value="">Select...</option>
+        <% for (let i = 1; i <= 5; i++) { %>
+          <option value="<%= i %>"><%= i %></option>
+        <% } %>
+      </select>
+
+      <label for="comment">Comment:</label>
+      <textarea name="comment" id="comment" rows="3" placeholder="Describe your experience with the vehicle's safety..."></textarea>
+
+      <button type="submit" class="btn">Submit Review</button>
+    </form>
+  <% } else { %>
+    <p>You must <a href="/account/login">log in</a> to leave a review.</p>
+  <% } %>
 </div>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const toggleBtn = document.getElementById("toggleReviewForm");
+    const form = document.getElementById("reviewForm");
+
+    if (toggleBtn && form) {
+      toggleBtn.addEventListener("click", () => {
+        const isVisible = form.style.display === "block";
+        form.style.display = isVisible ? "none" : "block";
+        toggleBtn.textContent = isVisible
+          ? "Leave a Safety Review"
+          : "Hide Form";
+      });
+    }
+  });
+</script>
+

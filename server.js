@@ -18,6 +18,7 @@ const pool = require('./database/')
 const accountRoutes = require("./routes/accountRoute")
 const bodyParser = require("body-parser")
 const cookieParser = require("cookie-parser")
+const reviewRoute = require("./routes/reviewRoute");
 
 
 /* ***********************
@@ -64,6 +65,10 @@ app.use(require("./routes/static"))
 app.get("/", utilities.handleErrors(baseController.buildHome))
 // Inventory routes
 app.use("/inv", require("./routes/inventoryRoute"))
+
+// Review routes
+app.use("/reviews", reviewRoute);
+
 
 // Account routes
 app.use("/account", require("./routes/accountRoute"))
