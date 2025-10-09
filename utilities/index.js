@@ -168,6 +168,19 @@ Util.checkJWTToken = (req, res, next) => {
  }
 
 
+ /* ****************************************
+ * Middleware to check if user is Employee or Admin
+ **************************************** */
+Util.checkEmployeeOrAdmin = (req, res, next) => {
+  const accountData = res.locals.accountData
+  if (!accountData || (accountData.account_type !== "Employee" && accountData.account_type !== "Admin")) {
+    req.flash("notice", "Access denied. Employees or Admins only.")
+    return res.redirect("/account/login")
+  }
+  next()
+}
+
+
  /* **************************************
 * Build the classification select dropdown HTML
 * Optional parameter: selected classification ID

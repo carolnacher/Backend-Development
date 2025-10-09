@@ -1,0 +1,83 @@
+<% if (title) { %>
+    <h1><%= title %></h1>
+<% } else { %>
+    <h1>Actualizar información de cuenta</h1>
+<% } %>
+
+<%- messages() %>
+
+<% if (typeof errors !== 'undefined' && errors) { %>
+    <ul class="notice">
+        <% errors.array().forEach(error => { %>
+            <li><%= error.msg %></li>
+        <% }) %>
+    </ul>
+<% } %>
+
+<div class="update-forms">
+
+    <h2>Actualización de Cuenta</h2>
+    <p class="notice">Los campos marcados con (*) son obligatorios.</p>
+    
+    <form id="updateAccountForm" action="/account/update" method="post">
+        
+        <fieldset>
+            <legend>Información Personal</legend>
+            
+            <label for="account_firstname">Nombre: (*)</label>
+            <input type="text" 
+                id="account_firstname" 
+                name="account_firstname" 
+                required 
+                value="<%= locals.account_firstname || account.account_firstname %>">
+
+            <label for="account_lastname">Apellido: (*)</label>
+            <input type="text" 
+                id="account_lastname" 
+                name="account_lastname" 
+                required 
+                value="<%= locals.account_lastname || account.account_lastname %>">
+
+            <label for="account_email">Correo Electrónico: (*)</label>
+            <input type="email" 
+                id="account_email" 
+                name="account_email" 
+                required 
+                value="<%= locals.account_email || account.account_email %>">
+            
+            <input type="submit" value="Actualizar Información" class="submit-btn">
+            
+            <input type="hidden" name="account_id" value="<%= account.account_id %>">
+        </fieldset>
+    </form>
+    
+    <hr>
+    
+    <h2>Cambiar Contraseña</h2>
+    <p class="notice">
+        Al ingresar una nueva contraseña, esta reemplazará a su contraseña actual. 
+        Asegúrese de que la nueva contraseña cumpla con los siguientes requisitos:
+        <ul>
+            <li>Debe tener al menos 12 caracteres.</li>
+            <li>Debe contener al menos 1 letra mayúscula, 1 número y 1 carácter especial.</li>
+        </ul>
+    </p>
+
+    <form id="updatePasswordForm" action="/account/update/password" method="post">
+        
+        <fieldset>
+            <label for="account_password">Nueva Contraseña: (*)</label>
+            <input type="password" 
+                id="account_password" 
+                name="account_password" 
+                required 
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9\s]).{12,}" 
+                title="La contraseña debe tener al menos 12 caracteres y contener al menos 1 mayúscula, 1 número y 1 carácter especial.">
+            
+            <input type="submit" value="Cambiar Contraseña" class="submit-btn">
+            
+            <input type="hidden" name="account_id" value="<%= account.account_id %>">
+        </fieldset>
+    </form>
+
+</div>

@@ -19,8 +19,10 @@ router.get("/addClassification", utilities.handleErrors(invController.buildAddCl
 router.post("/addClassification", utilities.handleErrors(invController.addClassification))
 
 router.get("/edit/:inv_id", utilities.handleErrors(invController.editInventoryView))
-router.get("/edit/:inv_id", invController.editInventoryView)
 
+
+router.get("/delete/:inv_id", utilities.checkEmployeeOrAdmin, invController.buildDeleteInventory)
+router.post("/delete", utilities.checkEmployeeOrAdmin, invController.deleteInventory)
 
 router.post("/update/",  utilities.handleErrors(invController.updateInventory));
 

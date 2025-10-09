@@ -14,11 +14,52 @@ router.get('/login', utilities.handleErrors(accountController.buildLogin));
 
 router.get('/register', utilities.handleErrors(accountController.buildRegister));
 
-router.get("/", utilities.checkLogin, utilities.handleErrors(accountController.buildManagement));
+router.get(
+  "/", 
+  utilities.checkJWTToken, 
+  utilities.checkLogin, 
+  utilities.handleErrors(accountController.buildManagement)
+);
 
-router.get("/", utilities.handleErrors(invController.buildManagementView));
+
+router.get(
+  "/management", 
+  utilities.checkJWTToken,
+  utilities.checkLogin,
+  utilities.handleErrors(accountController.buildManagement)
+);
 
 router.get("/logout", accountController.accountLogout);
+
+// Mostrar formulario de actualización
+router.get("/update/:account_id", utilities.checkJWTToken, utilities.checkLogin, accountController.buildUpdateAccount)
+
+
+router.post(
+    "/update", 
+    utilities.checkJWTToken, 
+    utilities.checkLogin, 
+    regValidate.updateInfoRules(), 
+    regValidate.checkUpdateData,    
+    utilities.handleErrors(accountController.updateAccountInfo) 
+); 
+
+// 2. PROCESAR CAMBIO DE CONTRASEÑA
+
+router.post(
+    "/update/password", 
+    utilities.checkJWTToken, 
+    utilities.checkLogin, 
+    regValidate.passwordRules(), 
+    regValidate.checkPasswordData, 
+    utilities.handleErrors(accountController.updateAccountPassword) 
+);
+
+
+
+// Procesar actualización
+router.post("/update/:account_id", accountController.updateAccount)
+
 
 
 // Process the registration data
