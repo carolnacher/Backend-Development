@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS public.account
 );
 
 INSERT INTO public.classification (classification_name)
-VALUES ('Custom');
+VALUES ('Custom'),
        ('Sport'),
        ('SUV'),
        ('Truck'),

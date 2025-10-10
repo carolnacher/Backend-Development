@@ -10,8 +10,8 @@
             "previewLimit": 50,
             "server": "localhost",
             "driver": "PostgreSQL",
-            "name": "render",
-            "connectString": "postgresql://databasecaroln:685RGMbCJfGHB2enpUO9CruXRsMDXyce@dpg-d34cenl6ubrc73a64k0g-a.oregon-postgres.render.com/databasecaroln"
+            "name": "Render",
+            "connectString": "postgresql://data123carol:794o6Uh6bn1deQ4unu8oUJTTC4DIwsTY@dpg-d3ki44je5dus73flm3rg-a.oregon-postgres.render.com/data123carol"
         }
     ]
 }
