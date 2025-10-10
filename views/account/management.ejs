@@ -13,17 +13,20 @@
 <p>You're logged in</p>
 
 
+
+
 <% if (account.account_type === "Client") { %>
-  <h2>Welcome <%= account.account_firstname %></h2>
+  <h2 class="welcome-client">Welcome <%= account.account_firstname %></h2>
+  <a class="update-link" href="/account/update/<%= account.account_id %>">Update account information</a>
 <% } else if (account.account_type === "Employee" || account.account_type === "Admin") { %>
-  <h2>Welcome <%= account.account_firstname %></h2>
+  <h2 class="welcome-admin">Welcome <%= account.account_firstname %></h2>
 
-  <a href="/account/update/<%= account.account_id %>">Update account information</a>
+  <a class="update-link" href="/account/update/<%= account.account_id %>">Update account information</a>
 
-  <h3>Inventory Management</h3>
-  <p><a href="/inv">Go to inventory management</a></p>
+  <h3 class="management-title">Inventory Management</h3>
+  <p><a class="management-link" href="/inv">Go to inventory management</a></p>
 <% } %>
 
 <% if (account.account_type === "Client") { %>
-  <a href="/account/update/<%= account.account_id %>">Update account information</a>
+  <a class="update-link" href="/account/update/<%= account.account_id %>">Update account information</a>
 <% } %>

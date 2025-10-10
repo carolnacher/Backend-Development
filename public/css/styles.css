@@ -229,7 +229,6 @@ form div {
   margin-bottom: 15px;
 }
 
-/* Estilo para las etiquetas de los campos */
 label {
   display: block;
   margin-bottom: 5px;
@@ -237,7 +236,7 @@ label {
   color: #555;
 }
 
-/* Estilo de los campos de texto, email y contraseña */
+
 input[type="text"],
 input[type="email"],
 input[type="password"] {
@@ -273,13 +272,13 @@ input[type="submit"] {
   margin-top: 10px;
 }
 
-/* Efecto al pasar el cursor sobre los botones */
+
 button[type="submit"]:hover,
 input[type="submit"]:hover {
   background-color: #0056b3;
 }
 
-/* Estilo para el párrafo y el enlace de "Register here" */
+
 .login-message {
   text-align: center;
   margin-top: 15px;
@@ -299,7 +298,7 @@ input[type="submit"]:hover {
 span {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   font-size: 0.9rem; 
-  color: #6c757d; 
+  color: #f7f9fa; 
   line-height: 1.4; 
   display: block;
   margin-top: 5px;
@@ -312,7 +311,7 @@ span {
   margin-left: 4px; 
 }
 
-/* Container for car details with the racing theme */
+
 .detail-container {
     background-color: #1a1a1a; 
     color: #f0f0f0;
@@ -792,7 +791,7 @@ top: 50%;
   font-size: 0.8rem;
 }
 
-/* Botón para abrir el formulario */
+
 #toggleReviewForm {
   background-color: #ff8c32;
   color: #1e1e1e;
@@ -862,3 +861,81 @@ top: 50%;
   transform: scale(1.05);
 }
 
+
+/* Estilo para cliente */
+.welcome-client {
+  background-color: #d9d9d9;
+  color: #333;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+
+.welcome-admin {
+  background-color: #444;
+  color: #ffa500;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+
+.update-link, .management-link {
+  display: inline-block;
+  margin: 0.5rem 0;
+  color: #0066cc;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.update-link:hover, .management-link:hover {
+  color: #ffa500;
+}
+
+
+.management-title {
+  color: #444;
+  margin-top: 1rem;
+  font-size: 1.3rem;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 0.3rem;
+}
+
+
+.welcome-banner {
+  background-color: #d9d9d9; /* gris claro */
+  color: #222;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-weight: bold;
+  margin-right: 1rem;
+}
+
+
+.header-link {
+  color: #ffffff; /* blanco por defecto */
+  text-decoration: none;
+  margin-left: 0.7rem;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+
+.header-link:hover {
+  color: #ffa500; /* naranja al pasar el mouse */
+}
+.welcome-name {
+  background-color: #d9d9d9; 
+  color: #222;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-weight: bold;
+  margin-right: 1rem;
+}
+#top-header a:hover {
+  color: #ffa500;
+}

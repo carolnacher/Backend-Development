@@ -101,9 +101,6 @@ app.use(async (err, req, res, next) => {
   })
 })
 
-
-
-
 /* ***********************
  * Log statement to confirm server operation
  *************************/
