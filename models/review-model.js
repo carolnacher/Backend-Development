@@ -8,12 +8,12 @@ const reviewModel = {}
 reviewModel.addReview = async (account_id, inv_id, rating, comment) => {
   try {
     const sql = `
-      INSERT INTO review (account_id, inv_id, rating, comment)
+      INSERT INTO reviews (account_id, inv_id, rating, comment)
       VALUES ($1, $2, $3, $4)
     `
     await pool.query(sql, [account_id, inv_id, rating, comment])
   } catch (error) {
-    console.error("Error adding review:", error)
+    console.error("Error adding reviews:", error)
     throw error
   }
 }
@@ -25,7 +25,7 @@ reviewModel.getReviewsByVehicle = async (inv_id) => {
   try {
     const sql = `
       SELECT r.*, a.account_firstname
-      FROM review AS r
+      FROM reviews AS r
       JOIN account AS a ON r.account_id = a.account_id
       WHERE r.inv_id = $1
       ORDER BY r.created_at DESC

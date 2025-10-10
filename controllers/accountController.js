@@ -40,7 +40,7 @@ async function accountLogin(req, res) {
   try {
     const accountData = await accountModel.getAccountByEmail(account_email);
     
-    // Si no se encuentra el usuario O la contraseña no coincide
+    
     if (!accountData || !(await bcrypt.compare(account_password, accountData.account_password))) {
       req.flash("notice", "Please check your credentials and try again.");
       return res.status(400).render("account/login", {
@@ -92,19 +92,17 @@ async function accountLogin(req, res) {
 
 async function registerAccount(req, res) {
   let nav = await utilities.getNav()
-  const { account_firstname, account_lastname, account_email, account_password,account_type } = req.body
+  const { account_firstname, account_lastname, account_email, account_password } = req.body
   console.log("Register POST body:", req.body);
   try {
-    // hashear la contraseña antes de guardarla
+   
     const hashedPassword = await bcrypt.hash(account_password, 10)
 
     const result = await accountModel.registerAccount(
       account_firstname,
       account_lastname,
       account_email,
-      account_type,
-      hashedPassword,
-      
+      hashedPassword
     )
 
     if (result) {
@@ -123,7 +121,7 @@ async function registerAccount(req, res) {
     res.status(500).render("account/register", {
       title: "Register",
       nav,
-      errors: null,wxez
+      errors: null,
     })
   }
 }
